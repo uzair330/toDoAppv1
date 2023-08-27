@@ -10,7 +10,7 @@ export default function Home() {
     <div className="">
       {/* <SubmissionData /> */}
       <List />
-      <TodoList />
+      {/* <TodoList /> */}
     </div>
   );
 }

@@ -16,10 +16,21 @@ import { Input } from "./ui/input";
 const List = () => {
   const [todos, setTodos] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  //   const handleAddTodo = () => {
+  //     setTodos([...todos, inputValue]);
+  //     setInputValue("");
+  //   };
 
   const handleAddTodo = () => {
-    setTodos([...todos, inputValue]);
-    setInputValue("");
+    if (inputValue.trim() !== "") {
+      setTodos([...todos, inputValue]);
+      setInputValue("");
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Please Enter a task before Submitting.");
+    }
   };
 
   const handleDeleteTodo = (index: number) => {
@@ -31,19 +42,25 @@ const List = () => {
       <div className="flex justify-center">
         <div className="flex w-full max-w-sm items-center space-x-2 ">
           <Input
+            required
             type="text"
-            placeholder="To do list"
+            placeholder="Create list of tasks"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
+
           <Button type="submit" onClick={handleAddTodo}>
             Add
           </Button>
         </div>
       </div>
-      <div className="flex justify-center px-20">
+      <div className="max-w-md mx-auto ">
+        <p className="text-red-500 font-semibold text-xl text-center py-10">
+          {errorMessage}
+        </p>
+        <div className="flex justify-center px-20"></div>
         <Table>
-          <TableCaption>
+          <TableCaption className="py-5">
             To do List App using Nextjs 13 by Muhammad Uzair.
           </TableCaption>
           <TableHeader>
@@ -60,8 +77,12 @@ const List = () => {
                 <TableCell>{todo}</TableCell>
 
                 <TableCell>
-                  <Button onClick={() => handleDeleteTodo(index)}>
-                    Delete
+                  <Button
+                    className="w-8 h-8 rounded-full"
+                    onClick={() => handleDeleteTodo(index)}
+                    variant={"outline"}
+                  >
+                    X
                   </Button>
                 </TableCell>
               </TableRow>
