@@ -17,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <h1 className="p-10 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+        {/* <h1 className="p-10 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
           To do List App
-        </h1>
+        </h1> */}
 
         {children}
       </body>
