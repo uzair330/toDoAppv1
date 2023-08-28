@@ -35,10 +35,10 @@ const List02 = () => {
       <div className="m-2 bg-white w-[400px] h-auto p-5 rounded-lg shadow-lg">
         <div className="flex justify-left">
           <div className="flex gap-2">
-            <span className=" text-xl font-extrabold  lg:text-3xl ">
+            <span className=" text-blue-700 text-xl font-extrabold  lg:text-3xl ">
               To do List App
             </span>
-            <Library size={35} />
+            <Library size={35} className="text-blue-700" />
           </div>
         </div>
         <div className="grid grid-cols-[1fr,auto] py-5">
@@ -63,14 +63,19 @@ const List02 = () => {
           <div className="max-w-md mx-auto ">
             <div className="flex justify-center px-20"></div>
             <Table>
-              <TableCaption className="py-5">
-                To do List App using Nextjs 13 by Muhammad Uzair.
+              <TableCaption className="py-5 font-semibold text-xs">
+                To do List App using Nextjs 13 by{" "}
+                <span className="text-blue-700 font-bold">Muhammad Uzair.</span>
               </TableCaption>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Sr.no</TableHead>
+                  <TableHead className="text-black font-semibold">
+                    Sr.no
+                  </TableHead>
 
-                  <TableHead>To do list</TableHead>
+                  <TableHead className="text-black font-semibold">
+                    To do list
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
